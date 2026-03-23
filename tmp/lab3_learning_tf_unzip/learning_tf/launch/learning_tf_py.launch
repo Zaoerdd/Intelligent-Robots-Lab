@@ -1,0 +1,31 @@
+<launch>
+  <arg name="use_teleop" default="true"/>
+  <arg name="auto_drive_turtle1" default="false"/>
+  <arg name="use_fixed_frame" default="false"/>
+  <arg name="use_dynamic_frame" default="false"/>
+  <arg name="follow_frame" default="turtle1"/>
+
+  <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+
+  <node pkg="turtlesim" type="turtle_teleop_key" name="teleop" output="screen" if="$(arg use_teleop)"/>
+
+  <node pkg="learning_tf" type="turtle_circle_driver.py" name="turtle1_auto_driver" output="screen" if="$(arg auto_drive_turtle1)">
+    <param name="turtle" value="turtle1"/>
+  </node>
+
+  <node name="turtle1_tf2_broadcaster" pkg="learning_tf" type="turtle_tf2_broadcaster.py" output="screen">
+    <param name="turtle" value="turtle1"/>
+  </node>
+
+  <node name="turtle2_tf2_broadcaster" pkg="learning_tf" type="turtle_tf2_broadcaster.py" output="screen">
+    <param name="turtle" value="turtle2"/>
+  </node>
+
+  <node name="fixed_tf2_broadcaster" pkg="learning_tf" type="fixed_tf2_broadcaster.py" output="screen" if="$(arg use_fixed_frame)"/>
+  <node name="dynamic_tf2_broadcaster" pkg="learning_tf" type="dynamic_tf2_broadcaster.py" output="screen" if="$(arg use_dynamic_frame)"/>
+
+  <node name="listener" pkg="learning_tf" type="turtle_tf2_listener.py" output="screen">
+    <param name="turtle" value="turtle2"/>
+    <param name="target_frame" value="$(arg follow_frame)"/>
+  </node>
+</launch>

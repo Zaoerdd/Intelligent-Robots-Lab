@@ -1,0 +1,36 @@
+<launch>
+  <arg name="parent_frame" default="base_link"/>
+  <arg name="child_frame" default="base_laser"/>
+  <arg name="x" default="0.1"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.2"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+  <arg name="scan_topic" default="/scan"/>
+  <arg name="target_frame" default="base_link"/>
+  <arg name="output_topic" default="/scan_in_base_link"/>
+  <arg name="use_test_scan" default="true"/>
+
+  <node pkg="learning_tf" type="rosbot_tf_broadcaster.py" name="rosbot_tf_broadcaster" output="screen">
+    <param name="parent_frame" value="$(arg parent_frame)"/>
+    <param name="child_frame" value="$(arg child_frame)"/>
+    <param name="x" value="$(arg x)"/>
+    <param name="y" value="$(arg y)"/>
+    <param name="z" value="$(arg z)"/>
+    <param name="roll" value="$(arg roll)"/>
+    <param name="pitch" value="$(arg pitch)"/>
+    <param name="yaw" value="$(arg yaw)"/>
+  </node>
+
+  <node pkg="learning_tf" type="robot_tf_listener.py" name="robot_tf_listener" output="screen">
+    <param name="scan_topic" value="$(arg scan_topic)"/>
+    <param name="target_frame" value="$(arg target_frame)"/>
+    <param name="output_topic" value="$(arg output_topic)"/>
+  </node>
+
+  <node pkg="learning_tf" type="test_scan_publisher.py" name="test_scan_publisher" output="screen" if="$(arg use_test_scan)">
+    <param name="scan_topic" value="$(arg scan_topic)"/>
+    <param name="frame_id" value="$(arg child_frame)"/>
+  </node>
+</launch>

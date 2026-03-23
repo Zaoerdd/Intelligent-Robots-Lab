@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>learning_tf</name>
+  <version>0.0.0</version>
+  <description>LAB3 tf2 tutorials and laser scan transform examples.</description>
+
+  <maintainer email="ubuntu@example.com">ubuntu</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>laser_geometry</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf</depend>
+  <depend>tf2</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_sensor_msgs</depend>
+  <depend>turtlesim</depend>
+
+  <export/>
+</package>
