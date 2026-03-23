@@ -263,6 +263,18 @@ average rate: 5.000""", styles))
             styles,
         )
     )
+    story.append(
+        body(
+            "GUI verification in RViz also confirmed that the transformed cloud was displayed in the base_link "
+            "frame while tf_echo continuously reported the expected static transform and rostopic hz showed a "
+            "stable publication rate.",
+            styles,
+        )
+    )
+    story.append(PageBreak())
+    story.append(img(LAB3 / "lab3_laser_verification.png", 15.6))
+    story.append(Spacer(1, 0.1 * cm))
+    story.append(Paragraph("Figure 4. RViz and command-line verification for the base_link to base_laser transform.", styles["Small"]))
 
     story.append(section("6. Visualization Tools", styles))
     story.append(

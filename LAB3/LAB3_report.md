@@ -211,6 +211,8 @@ points [[0.541, -0.089, 0.2], [0.498, -0.04, 0.2], [0.4, 0.0, 0.2], [0.498, 0.04
 
 The center point `(0.4, 0.0, 0.2)` is consistent with the LAB3 geometry: a point located `0.3 m` ahead of `base_laser` appears `0.4 m` ahead of `base_link` after adding the `0.1 m` frame offset.
 
+The GUI verification also showed the transformed point cloud in RViz with `base_link` as the fixed frame, while `tf_echo` continuously reported the expected static transform and `rostopic hz` confirmed a stable publication rate.
+
 ## 7. Discussion
 
 This experiment demonstrates the core usage pattern of tf2 in ROS:
