@@ -1,0 +1,28 @@
+LAB4 final submission bundle
+
+Included files:
+
+1. LAB4_report.pdf
+   Final PDF report without student information.
+
+2. LAB4_code.zip
+   Code bundle for Part 3 and Part 4.
+
+3. part2_rviz_camera_lidar.png
+   Final Part 2 screenshot showing TurtleBot3 Gazebo/RViz sensor visualization.
+
+4. part3_remote_bringup.png
+   Final Part 3 remote-machine screenshot.
+
+5. part3_local_teleop.png
+   Final Part 3 local-machine screenshot.
+
+6. part4_calibration_process.png
+   Final Part 4 calibration-process screenshot.
+
+7. part4_camera_parameters.png
+   Final Part 4 camera-parameter screenshot.
+
+Notes:
+- Existing files in LAB4 were preserved.
+- This bundle was assembled by copying the selected final files into a separate submission folder.

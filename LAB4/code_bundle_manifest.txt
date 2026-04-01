@@ -1,0 +1,13 @@
+LAB4 code bundle contents
+
+1. rosbridge_keyboard_teleop.py
+   Local Windows keyboard teleoperation client used for Part 3.
+
+2. generate_synthetic_calibration.py
+   Synthetic camera-calibration data generator used for Part 4 when no physical USB camera was attached to the VM.
+
+3. generate_lab4_report.py
+   Script used to generate the final LAB4 PDF report.
+
+4. part4_camera_parameters.yaml
+   Final calibration parameter file referenced in the report.
