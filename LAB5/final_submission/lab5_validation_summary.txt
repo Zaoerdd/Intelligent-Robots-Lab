@@ -1,0 +1,62 @@
+Remote host: ubuntu@192.168.40.128
+Remote OS: Ubuntu 20.04
+ROS distro: noetic
+Workspace: /home/ubuntu/limo_ws
+Repository: https://github.com/Intelligent-Robot-Course/ugv_gazebo_sim.git
+
+Validation 1: launch-file resolution
+- limo_description/display_models.launch
+- limo_gazebo_sim/limo_ackerman.launch
+- limo_gazebo_sim/limo_demo.launch
+- limo_camera/extrinsic_camera_calibration.launch
+- limo_detect/detect_lane.launch
+- limo_driving/turtlebot3_autorace_control_lane.launch
+
+Validation 2: ackerman simulation
+Nodes:
+- /controller_spawner
+- /gazebo
+- /gazebo_gui
+- /robot_state_publisher
+- /rosout
+- /rviz
+
+Key topics:
+- /clock
+- /cmd_vel
+- /limo/color/image_raw
+- /limo/depth/image_raw
+- /limo/imu
+- /limo/scan
+- /tf
+
+Topic checks:
+- /cmd_vel: geometry_msgs/Twist, subscriber /gazebo
+- /limo/scan: sensor_msgs/LaserScan, publisher /gazebo, subscriber /rviz
+- /limo/color/image_raw: sensor_msgs/Image, publisher /gazebo, subscriber /rviz
+
+Validation 3: lane-detection pipeline
+Nodes:
+- /camera/image_compensation
+- /camera/image_compensation_projection
+- /camera/image_projection
+- /control_lane
+- /detect_lane
+
+Pipeline topics:
+- /camera/image_projected_compensated
+- /detect/image_lane/compressed
+- /detect/lane
+- /cmd_vel
+
+Topic checks:
+- /detect/lane: std_msgs/Float64, publisher /detect_lane, subscriber /control_lane
+- /detect/image_lane/compressed: sensor_msgs/CompressedImage, publisher /detect_lane
+- /cmd_vel: geometry_msgs/Twist, publisher /control_lane, subscriber /gazebo
+- sample /detect/lane value: -163.10505252446842
+
+Runtime fix applied:
+- The original limo_detect/nodes/detect_lane raised:
+  AttributeError: 'DetectLane' object has no attribute 'mov_avg_left'
+- Fix: initialize left/right lane-fit state, moving-average buffers, and add guards before averaging empty history arrays.
+- Re-run result: detect_lane and control_lane started cleanly, and /detect/lane plus /cmd_vel published as expected.

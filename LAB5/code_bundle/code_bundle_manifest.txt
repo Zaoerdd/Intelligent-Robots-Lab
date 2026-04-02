@@ -1,0 +1,20 @@
+LAB5 code bundle contents
+=========================
+
+1. README.md
+   Original Lab 5 handout from the workspace.
+
+2. LAB5_report.md
+   Markdown source of the final report.
+
+3. lab5_commands.txt
+   Main setup, build, and launch commands used for the lab.
+
+4. lab5_validation_summary.txt
+   Runtime validation notes and verified ROS nodes/topics.
+
+5. generated/detect_lane_fixed.py
+   Patched detect_lane node used to fix the runtime AttributeError during live validation.
+
+6. tmp/generate_lab5_report.py
+   Local script used to generate LAB5_report.pdf.

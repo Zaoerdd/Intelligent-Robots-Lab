@@ -1,0 +1,27 @@
+<launch>
+  <arg name="mode" default="action" />
+  <arg name="is_extrinsic_camera_calibration_mode" default="false" />
+
+  <node name="image_compensation" pkg="limo_camera" type="image_compensation" output="screen">
+    <remap from="/camera/image_input" to="/limo/color/image_raw" />
+    <remap from="/camera/image_input/compressed" to="/limo/color/image_raw/compressed" />
+    <remap from="/camera/image_output" to="/camera/image_compensated" />
+    <remap from="/camera/image_output/compressed" to="/camera/image_compensated/compressed" />
+  </node>
+
+  <node name="image_projection" pkg="limo_camera" type="image_projection" output="screen">
+    <remap from="/camera/image_input" to="/limo/color/image_raw" />
+    <remap from="/camera/image_input/compressed" to="/limo/color/image_raw/compressed" />
+    <remap from="/camera/image_output" to="/camera/image_projected" />
+    <remap from="/camera/image_output/compressed" to="/camera/image_projected/compressed" />
+    <remap from="/camera/image_calib" to="/camera/image_extrinsic_calib" />
+    <remap from="/camera/image_calib/compressed" to="/camera/image_extrinsic_calib/compressed" />
+  </node>
+
+  <node name="image_compensation_projection" pkg="limo_camera" type="image_compensation" output="screen">
+    <remap from="/camera/image_input" to="/camera/image_projected" />
+    <remap from="/camera/image_input/compressed" to="/camera/image_projected/compressed" />
+    <remap from="/camera/image_output" to="/camera/image_projected_compensated" />
+    <remap from="/camera/image_output/compressed" to="/camera/image_projected_compensated/compressed" />
+  </node>
+</launch>
