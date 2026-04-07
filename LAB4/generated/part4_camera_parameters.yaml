@@ -1,0 +1,22 @@
+image_width: 640
+image_height: 480
+camera_name: synthetic_usb_cam
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [633.279533, 0.000000, 317.464722, 0.000000, 628.144225, 238.798925, 0.000000, 0.000000, 1.000000]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.033008, -0.340623, 0.000056, -0.001492, 1.192364]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [633.279533, 0.000000, 317.464722, 0.000000, 0.000000, 628.144225, 238.798925, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000]
+reprojection_error: 0.065537
+valid_views: 16

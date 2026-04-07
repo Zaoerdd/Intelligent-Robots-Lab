@@ -1,0 +1,11 @@
+LAB5 final submission contents
+==============================
+
+1. LAB5_report.pdf
+2. LAB5_code.zip
+3. ref_rviz_model.png
+4. ref_ackerman_gazebo.png
+5. ref_demo_world.png
+6. live_projected_image.png
+7. live_detect_lane.jpg
+8. lab5_validation_summary.txt

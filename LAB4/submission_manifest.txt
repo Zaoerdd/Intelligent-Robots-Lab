@@ -1,0 +1,17 @@
+LAB4 submission bundle contents
+
+1. LAB4_report.md
+   Formal report draft for Lab 4. Student name, student ID, and final screenshots can be filled in before submission.
+
+2. Screenshot checklist
+   Refer to screenshot_checklist.md for the exact images to capture.
+
+Recommended screenshot filenames
+- part2_rviz_camera_lidar.png
+- part3_remote_bringup.png
+- part3_local_teleop.png
+- part4_calibration_process.png
+- part4_camera_parameters.png
+
+Current blocking item
+- Remote SSH authentication to ubuntu@192.168.40.128 still requires the correct password or an authorized private key.

@@ -1,0 +1,41 @@
+Environment setup and build
+---------------------------
+sudo apt-get install ros-noetic-ros-control
+sudo apt-get install ros-noetic-ros-controllers
+sudo apt-get install ros-noetic-gazebo-ros
+sudo apt-get install ros-noetic-gazebo-ros-control
+sudo apt-get install ros-noetic-joint-state-publisher-gui
+sudo apt-get install ros-noetic-rqt-robot-steering
+sudo apt-get install ros-noetic-teleop-twist-keyboard
+
+mkdir -p ~/limo_ws/src
+cd ~/limo_ws/src
+git clone https://github.com/Intelligent-Robot-Course/ugv_gazebo_sim.git
+cd ~/limo_ws
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+
+Model display
+-------------
+source /opt/ros/noetic/setup.bash
+source ~/limo_ws/devel/setup.bash
+roslaunch limo_description display_models.launch
+
+Ackerman simulation
+-------------------
+source /opt/ros/noetic/setup.bash
+source ~/limo_ws/devel/setup.bash
+roslaunch limo_gazebo_sim limo_ackerman.launch
+
+Control methods
+---------------
+rosrun rqt_robot_steering rqt_robot_steering
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+Demo world and lane pipeline
+----------------------------
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/limo_ws/src/ugv_gazebo_sim/limo/models
+roslaunch limo_gazebo_sim limo_demo.launch
+roslaunch limo_camera extrinsic_camera_calibration.launch
+roslaunch limo_detect detect_lane.launch
+roslaunch limo_driving turtlebot3_autorace_control_lane.launch

@@ -1,0 +1,16 @@
+LAB5 single submission bundle
+=============================
+
+Files included:
+
+1. LAB5_report.pdf
+2. LAB5_report.md
+3. README.md
+4. lab5_commands.txt
+5. lab5_validation_summary.txt
+6. detect_lane_fixed.py
+7. generate_lab5_report.py
+8. model_display_manual.png
+9. ackerman_sim_manual.png
+10. projected_view_manual.png
+11. detect_lane_manual.png
