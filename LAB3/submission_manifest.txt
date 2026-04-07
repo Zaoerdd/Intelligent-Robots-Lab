@@ -1,13 +1,13 @@
 LAB3 submission bundle contents
 
 1. LAB3_report.pdf
-   Formal report for LAB3. Student name and student ID can be filled in before submission if needed.
+   Updated formal report for LAB3 with tf2, QT Toolkit, and laser transform verification.
 
 2. learning_tf.zip
    Source package zip generated from the remote ROS workspace.
 
 Generation notes
-- Environment: Ubuntu 20.04.6 + ROS Noetic
+- Environment: Ubuntu 20.04.6 + ROS Noetic on 192.168.44.132
 - Workspace: ~/catkin_ws
-- Verification completed with tf, rostopic, and RViz
-
+- Verification completed with tf, rostopic, RViz, rqt_graph, view_frames, and rqt_image_view
+- Camera visualization reproduced with image_publisher because no physical /dev/video* device was available
