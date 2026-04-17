@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>zaoer_bot_description</name>
+  <version>0.0.1</version>
+  <description>Self-inspired robot description package for Intelligent Robots Lab 6.</description>
+
+  <maintainer email="ubuntu@example.com">ubuntu</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>xacro</depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+  <export/>
+</package>

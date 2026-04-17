@@ -1,0 +1,19 @@
+<launch>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.03"/>
+  <arg name="yaw" default="0.0"/>
+  <arg name="rviz" default="false"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find zaoer_bot_description)/urdf/zaoer_bot.urdf.xacro"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="50.0"/>
+  </node>
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_zaoer_bot" output="screen"
+        args="-urdf -model zaoer_bot -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)"/>
+
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" output="screen"
+        args="-d $(find zaoer_bot_gazebo)/rviz/zaoer_bot_sensors.rviz"/>
+</launch>

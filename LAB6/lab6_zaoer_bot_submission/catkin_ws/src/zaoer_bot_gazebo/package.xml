@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>zaoer_bot_gazebo</name>
+  <version>0.0.1</version>
+  <description>Gazebo simulation package for the Zaoer Bot Lab 6 robot.</description>
+
+  <maintainer email="ubuntu@example.com">ubuntu</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>gazebo_plugins</depend>
+  <depend>gazebo_ros</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>rviz</depend>
+  <depend>xacro</depend>
+  <depend>zaoer_bot_description</depend>
+
+  <export/>
+</package>
